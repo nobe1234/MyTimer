@@ -19,8 +19,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Background.png" />
+    <None Remove="Resources\voice.m4a" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Background.png" />
+    <EmbeddedResource Include="Resources\voice.m4a" />
   </ItemGroup>
 </Project>
