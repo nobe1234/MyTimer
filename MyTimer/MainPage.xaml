@@ -23,28 +23,82 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- 設定中のタイマー時間表示 -->
-                <Label Text="設定中のタイマー時間表示"
+                <Label Text="00:00"
                        Grid.ColumnSpan="2"
-                       HorizontalOptions="Fill" VerticalOptions="Fill"
-                       BackgroundColor="Red"/>
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       FontSize="Large"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
 
                 <!-- タイマー開始ボタン -->
-                <Label Text="開始ボタン"
+                <Button Text="タイマー開始"
                        Grid.Row="1" Grid.RowSpan="2"
-                       HorizontalOptions="Fill" VerticalOptions="Fill"
-                       BackgroundColor="Blue"/>
+                       BackgroundColor="#80808080"/>
 
                 <!-- タイマー時間の + - ボタン達 -->
-                <Label Text="タイマー時間の + - ボタン達"
-                       Grid.Row="1" Grid.Column="1"
-                       HorizontalOptions="Fill" VerticalOptions="Fill"
-                       BackgroundColor="Yellow"/>
-
+    <StackLayout Orientation="Horizontal"
+        Grid.Row="1" Grid.Column="1"
+        HorizontalOptions="Center">
+        <!-- 分の + - ボタン達 -->
+        <StackLayout>
+            <!-- 「分」 ラベル -->
+            <Label Text="分" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+            <!-- + - ボタン達  -->
+            <StackLayout Orientation="Horizontal">
+                <!-- 10の位設定 -->
+                <StackLayout>
+                    <Label Text="10" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                    <Button Text="＋" BackgroundColor="#80808080"/>
+                    <Button Text="ー" BackgroundColor="#80808080"/>
+                </StackLayout>
+                <!-- 1の位設定 -->
+                <StackLayout>
+                    <Label Text="1" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                    <Button Text="＋" BackgroundColor="#80808080"/>
+                    <Button Text="ー" BackgroundColor="#80808080"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <!-- 秒の + - ボタン達 -->
+        <StackLayout>
+        <!-- 「秒」 ラベル -->
+            <Label Text="秒" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+            <!-- + - ボタン達  -->
+            <StackLayout Orientation="Horizontal">
+            <!-- 10の位設定 -->
+                <StackLayout>
+                    <Label Text="10" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                    <Button Text="＋" BackgroundColor="#80808080"/>
+                    <Button Text="ー" BackgroundColor="#80808080"/>
+                </StackLayout>
+                <!-- 1の位設定 -->
+                <StackLayout>
+                    <Label Text="1" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                    <Button Text="＋" BackgroundColor="#80808080"/>
+                    <Button Text="ー" BackgroundColor="#80808080"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
                 <!-- カウント後の音声設定 -->
-                <Label Text="カウント後の音声設定"
-                       Grid.Row="2" Grid.Column="1"
-                       HorizontalOptions="Fill" VerticalOptions="Fill"
-                       BackgroundColor="Green"/>
+                <Grid Grid.Row="2" Grid.Column="1">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <!-- テキスト読み上げ or 音声ファイル の選択 Switch -->
+    <Switch x:Name="useSpeechText"/>
+    <Grid Grid.Column="1">
+        <!-- 音声ファイルを使用ラベル -->
+        <Label Text="音声ファイルを使用"
+            HorizontalOptions="Fill" VerticalOptions="Center" HorizontalTextAlignment="Start"
+            TextColor="Black" FontAttributes="Bold"/>
+        <!-- テキスト読み上げのテキスト -->
+        <Editor
+            HorizontalOptions="Fill"
+            IsVisible="{Binding IsToggled, Source={x:Reference useSpeechText}" BackgroundColor="White"/>
+    </Grid>
+</Grid>
             </Grid>
         </Grid>
     </ContentPage.Content>
