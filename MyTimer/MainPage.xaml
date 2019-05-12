@@ -10,6 +10,42 @@
         <Grid>
             <!-- 背景画像 -->
             <Image Source="{local:ImageResource MyTimer.Resources.Background.png}" Aspect="AspectFit" />
+
+            <Grid BackgroundColor="#80FFFFFF">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 設定中のタイマー時間表示 -->
+                <Label Text="設定中のタイマー時間表示"
+                       Grid.ColumnSpan="2"
+                       HorizontalOptions="Fill" VerticalOptions="Fill"
+                       BackgroundColor="Red"/>
+
+                <!-- タイマー開始ボタン -->
+                <Label Text="開始ボタン"
+                       Grid.Row="1" Grid.RowSpan="2"
+                       HorizontalOptions="Fill" VerticalOptions="Fill"
+                       BackgroundColor="Blue"/>
+
+                <!-- タイマー時間の + - ボタン達 -->
+                <Label Text="タイマー時間の + - ボタン達"
+                       Grid.Row="1" Grid.Column="1"
+                       HorizontalOptions="Fill" VerticalOptions="Fill"
+                       BackgroundColor="Yellow"/>
+
+                <!-- カウント後の音声設定 -->
+                <Label Text="カウント後の音声設定"
+                       Grid.Row="2" Grid.Column="1"
+                       HorizontalOptions="Fill" VerticalOptions="Fill"
+                       BackgroundColor="Green"/>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
